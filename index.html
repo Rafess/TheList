@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 2 - DOM</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <main>
+        <div class="title-container">
+            <h1>Cadastro de Clientes</h1>
+        </div>
+        <form>
+            <label for="user">
+                Insira o nome de usuário aqui:
+            </label>
+            <div class="input-container">
+                <input name="user" type="text" id="user" required placeholder="Exemplo: Rafael"/>
+                <button id="creator" type="click" onclick="createUser()" required>OK</button>
+            </div> 
+        </form>
+        <section>
+            <h2>Lista de Usuários</h2>
+            <ul>
+
+            </ul>
+        </section>
+    </main>
+    <script>
+        const button = document.querySelector("button[id='createUser']");
+        const form = document.querySelector("form");
+        const list = document.querySelector("ul");
+        let usuario = document.querySelector("input[id='user']");
+        let removeBtn = document.createElement("button");
+        
+        function preventFormRefresh() {
+            form.addEventListener("click", function(event) {
+                event.preventDefault();
+            });
+        }
+        function createUser() {
+            preventFormRefresh();
+            setRemoveBtn();
+            list.innerHTML += `<li id="${usuario.value}"> ${usuario.value} </li>`;
+            let item = document.querySelector(`li[id='${usuario.value}']`)
+            item.appendChild(removeBtn)
+            form.reset();
+        }
+        function setRemoveBtn() {
+            removeBtn.innerText = 'Remover';
+            removeBtn.type = "button";
+            removeBtn.setAttribute('class', '--red')
+            removeUser();
+        }
+        function removeUser() {
+            removeBtn.onclick = function(){
+            removeBtn.parentElement.remove()
+                return
+                    }
+        }
+    </script>
+</body>
+</html>
