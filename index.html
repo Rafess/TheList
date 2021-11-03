@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula 2 - DOM</title>
+    <title>User List - Rafael de Oliveira</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -28,38 +28,6 @@
             </ul>
         </section>
     </main>
-    <script>
-        const button = document.querySelector("button[id='createUser']");
-        const form = document.querySelector("form");
-        const list = document.querySelector("ul");
-        let usuario = document.querySelector("input[id='user']");
-        let removeBtn = document.createElement("button");
-        
-        function preventFormRefresh() {
-            form.addEventListener("click", function(event) {
-                event.preventDefault();
-            });
-        }
-        function createUser() {
-            preventFormRefresh();
-            setRemoveBtn();
-            list.innerHTML += `<li id="${usuario.value}"> ${usuario.value} </li>`;
-            let item = document.querySelector(`li[id='${usuario.value}']`)
-            item.appendChild(removeBtn)
-            form.reset();
-        }
-        function setRemoveBtn() {
-            removeBtn.innerText = 'Remover';
-            removeBtn.type = "button";
-            removeBtn.setAttribute('class', '--red')
-            removeUser();
-        }
-        function removeUser() {
-            removeBtn.onclick = function(){
-            removeBtn.parentElement.remove()
-                return
-                    }
-        }
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
